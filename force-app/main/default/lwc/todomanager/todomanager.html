@@ -1,0 +1,22 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-layout class="slds-align_absolute-center slds-text-align_center container" multiple-rows>
+        <lightning-layout-item size="12">
+            <div class="greeting">{greeting} </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="12">
+            <div class="time">{time}</div>
+        </lightning-layout-item>
+       <lightning-layout-item size ="12" large-device-size="10" class="slds-m-top_large">
+        <lightning-layout>
+            <lightning-layout-item size="11" class="slds-alignabsolute-center">
+                <lightning-input type="text" label="Whats on your mind" variant="label-hidden" placeholder="Whats on your mind">
+                </lightning-input>
+                <lightning-layout-item size = "1">
+                    <lightning-button-icon icon-name="utility:add" title="add todo" onclick={addtodohandler}> </lightning-button-icon>
+                </lightning-layout-item>
+            </lightning-layout-item>
+        </lightning-layout>
+       </lightning-layout-item>
+    </lightning-layout>
+</template> 
