@@ -2,7 +2,7 @@ import { LightningElement , track } from 'lwc';
 
 export default class Todomanager extends LightningElement {
 @track time = "00";
-@track greeting ="Good Evening";
+@track greeting ="Good Evening ";
 
 connectedCallback(){
     this.getTime();
