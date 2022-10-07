@@ -1,22 +1,40 @@
 <!-- sldsValidatorIgnore -->
 <template>
+    <!-- Todo manager container-->
     <lightning-layout class="slds-align_absolute-center slds-text-align_center container" multiple-rows>
         <lightning-layout-item size="12">
-            <div class="greeting">{greeting} </div>
+            <div class="greeting">{time}</div>
         </lightning-layout-item>
         <lightning-layout-item size="12">
-            <div class="time">{time}</div>
+            <div class="time">{greeting}</div>
+        </lightning-layout-item>
+        <lightning-layout-item size="12">
+            <div class="time">{whatsup}</div>
         </lightning-layout-item>
        <lightning-layout-item size ="12" large-device-size="10" class="slds-m-top_large">
         <lightning-layout>
-            <lightning-layout-item size="11" class="slds-alignabsolute-center">
-                <lightning-input type="text" label="Whats on your mind" variant="label-hidden" placeholder="Whats on your mind">
-                </lightning-input>
-                <lightning-layout-item size = "1">
-                    <lightning-button-icon icon-name="utility:add" title="add todo" onclick={addtodohandler}> </lightning-button-icon>
-                </lightning-layout-item>
+            <!-- Input box-->
+            <lightning-layout-item size="11">
+                <lightning-input type="text" label="Whats in your mind..." variant="label-hidden"
+                    placeholder="Whats in your mind.."></lightning-input>
+            </lightning-layout-item> 
+            <lightning-layout-item size="1">
+                <lightning-button-icon icon-name="utility:add" alternative-text="Add" title="Add todo"
+                    onclick={addtodohandler}>
+                </lightning-button-icon>
             </lightning-layout-item>
         </lightning-layout>
        </lightning-layout-item>
+       <!--to display things-->
+        <lightning-layout-item size="12">
+        <div>UPCOMING</div>
+        <template for:each={upcomingTask} for:item="todo">
+           <c-to-do-item key = {todo.todoid} todo-id = {todo.todoid} todo-name = {todo.todoName}></c-to-do-item>
+        </template>
+        <div>COMPLETED</div>
+        <template for:each={completedTask} for:item="todo">
+          <c-to-do-item key = {todo.todoid} todo-id = {todo.todoid} todo-name = {todo.todoName} done ></c-to-do-item>
+        </template>
+      </lightning-layout-item>
     </lightning-layout>
 </template> 

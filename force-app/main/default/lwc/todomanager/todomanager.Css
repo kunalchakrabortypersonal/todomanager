@@ -12,6 +12,11 @@
 }
 
 .time {
-    font-size: 5rem;
+    font-size: 2rem;
     font-weight: 600;
+}
+.whatsup{
+    font-size: 2rem;
+    font-weight: 400;
+    font-style: italic;
 }

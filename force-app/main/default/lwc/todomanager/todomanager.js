@@ -3,6 +3,8 @@ import { LightningElement , track } from 'lwc';
 export default class Todomanager extends LightningElement {
 @track time = "00";
 @track greeting ="Good Evening ";
+whatsup ="What is your main focus today?";
+@track todos =[];
 
 connectedCallback(){
     this.getTime();
@@ -57,5 +59,35 @@ setGreeting(hour){
     else 
         this.greeting = "Good Evening";
 }
+addtodohandler(){
+    const input = this.template.querySelector("lightning-input");
+    console.log('input text', input.value);
+    
+    const todo ={
+        todoid: this.todos.length,
+        todoName: input.value,
+        done: false,
+        todoDate : new Date() 
+    };
+    this.todos.push(todo);
+    
+    input.value ="";
+}
+get upcomingTask(){
+   return this.todos && this.todos.length ? this.todos.filter(todo => !todo.done) : [];
+}
+get completedTask(){
+    return this.todos && this.todos.length ? this.todos.filter(todo => todo.done) : [];
+}
+updatehandler(){
+    const ID =get(todo.todoid);
+    for ( const obj of todos)
+    {
+        if(obj.todoid == ID){
+            obj.done = true;
+            break;
+        }
+    }
 
+}
 }
